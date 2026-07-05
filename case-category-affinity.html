@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case study — a category affinity signal, built inside Bloomreach — mlcrm</title>
+<meta name="description" content="A music-instrument &amp; pro-audio retailer turned behavioural data already in Bloomreach into a per-customer category signal. In a controlled A/B with opens held level, click-through rose from 1.32% to 1.49%.">
+<meta property="og:title" content="Case study — a category affinity signal, built inside Bloomreach — mlcrm">
+<meta property="og:description" content="Same audience, same send — a personal category signal lifted click-through from 1.32% to 1.49% in a controlled A/B. Built entirely inside Bloomreach.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mlcrm.cloud/case-category-affinity">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+/* ===== mlcrm design tokens (from the handoff bundle) ===== */
+:root{
+  --indigo-25:#F6F6FE;--indigo-50:#EEEEFC;--indigo-100:#E0E0FA;--indigo-200:#C6C6F6;--indigo-300:#A3A2F0;--indigo-400:#8281EA;--indigo-500:#6562E0;--indigo-600:#5048CB;--indigo-700:#423AA8;--indigo-800:#383189;--indigo-900:#2C2769;--indigo-950:#1C1942;
+  --violet-300:#C39CF7;--violet-400:#A974F0;--violet-500:#9050E6;--violet-600:#7C39D4;
+  --coral-300:#FF9C88;--coral-400:#FB7657;--coral-500:#F25B3A;--coral-600:#DC4422;
+  --gray-0:#FFFFFF;--gray-25:#FCFCFB;--gray-50:#F8F8F6;--gray-100:#F1F1EE;--gray-200:#E6E5E1;--gray-300:#D5D3CD;--gray-400:#ABA89F;--gray-500:#807D74;--gray-600:#5F5C54;--gray-700:#46443E;--gray-800:#2E2C28;--gray-900:#1C1B18;--gray-950:#121110;
+  --green-50:#E9F8F0;--green-600:#099250;--green-700:#087443;
+  --gradient-brand:linear-gradient(120deg,#5048CB 0%,#7C39D4 52%,#9050E6 100%);
+  --gradient-hero:linear-gradient(135deg,#2C2769 0%,#5048CB 45%,#9050E6 100%);
+  --gradient-mesh:radial-gradient(120% 120% at 0% 0%,#6562E0 0%,transparent 55%),radial-gradient(120% 120% at 100% 0%,#9050E6 0%,transparent 50%),radial-gradient(140% 140% at 50% 100%,#F25B3A 0%,transparent 45%);
+  --gradient-surface:linear-gradient(180deg,#FCFCFB 0%,#F1F1EE 100%);
+  --surface-page:var(--gray-25);--surface-card:var(--gray-0);--surface-brand-subtle:var(--indigo-50);
+  --text-primary:var(--gray-900);--text-secondary:var(--gray-600);--text-tertiary:var(--gray-500);--text-brand:var(--indigo-600);--text-accent:var(--coral-600);
+  --border-subtle:var(--gray-200);--border-default:var(--gray-300);
+  --font-display:'Bricolage Grotesque','Plus Jakarta Sans',system-ui,sans-serif;
+  --font-sans:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --text-xs:.75rem;--text-sm:.875rem;--text-base:1rem;--text-lg:1.125rem;--text-xl:1.25rem;--text-2xl:1.5rem;--text-3xl:1.875rem;--text-4xl:2.375rem;--text-5xl:3rem;
+  --radius-md:8px;--radius-lg:10px;--radius-xl:12px;--radius-2xl:16px;--radius-3xl:24px;--radius-full:9999px;
+  --shadow-sm:0 1px 2px rgba(28,27,24,.06),0 1px 3px rgba(28,27,24,.05);
+  --shadow-lg:0 4px 6px -2px rgba(28,27,24,.05),0 12px 20px -4px rgba(28,27,24,.10);
+  --shadow-brand:0 6px 16px -4px rgba(80,72,203,.40);
+  --shadow-brand-lg:0 12px 32px -6px rgba(80,72,203,.38);
+  --ring-brand:0 0 0 4px rgba(101,98,224,.30);
+  --ease-out:cubic-bezier(.22,1,.36,1);--container:1200px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:var(--font-sans);background:var(--surface-page);color:var(--text-primary);-webkit-font-smoothing:antialiased;}
+::selection{background:var(--indigo-200);}
+a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent;}
+h1,h2,h3{font-family:var(--font-display);margin:0;}
+.wrap{width:100%;max-width:var(--container);margin:0 auto;padding:0 24px;}
+.narrow{max-width:860px;}
+.eyebrow{font-family:var(--font-sans);font-size:var(--text-sm);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-brand);}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-sans);font-weight:600;font-size:var(--text-base);border-radius:var(--radius-lg);padding:12px 20px;border:1px solid transparent;cursor:pointer;transition:transform 140ms var(--ease-out),background 140ms var(--ease-out),box-shadow 140ms var(--ease-out);text-align:center;}
+.btn svg{width:18px;height:18px;}
+.btn-grad{background:var(--gradient-brand);color:#fff;box-shadow:var(--shadow-brand);}
+.btn-grad:hover{box-shadow:var(--shadow-brand-lg);}
+.btn-grad:active{transform:translateY(.5px);box-shadow:var(--shadow-brand);}
+.btn-glass{background:rgba(255,255,255,.10);color:#fff;border:1px solid rgba(255,255,255,.22);}
+.btn-glass:hover{background:rgba(255,255,255,.16);}
+.btn-white{background:#fff;color:var(--indigo-700);box-shadow:var(--shadow-lg);}
+.btn-white:active{transform:translateY(.5px);}
+.icn{width:24px;height:24px;display:block;flex:none;}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out);}
+.reveal.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:40;border-bottom:1px solid transparent;transition:background .2s,border-color .2s,backdrop-filter .2s;}
+.hdr.scrolled{background:rgba(252,252,251,.85);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--border-subtle);}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;}
+.logo{display:inline-flex;align-items:center;gap:9px;}
+.logo .mark{width:34px;height:34px;display:block;}
+.logo .word{font-family:var(--font-display);font-weight:700;font-size:30px;letter-spacing:-.03em;color:var(--gray-900);}
+.nav{display:flex;align-items:center;gap:4px;}
+.nav a{padding:8px 12px;font-size:var(--text-sm);font-weight:600;color:var(--text-secondary);border-radius:var(--radius-md);transition:color .14s;}
+.nav a:hover{color:var(--text-primary);}
+.hdr-cta{display:flex;align-items:center;gap:10px;}
+@media(max-width:860px){.nav{display:none;}}
+
+/* case hero */
+.cs-hero{position:relative;overflow:hidden;background:var(--gray-950);}
+.cs-hero .mesh{position:absolute;inset:0;background-image:var(--gradient-mesh);opacity:.9;}
+.cs-hero .vig{position:absolute;inset:0;background:radial-gradient(120% 80% at 50% -10%,transparent 40%,rgba(18,17,16,.6) 100%);}
+.cs-hero .wrap{position:relative;padding:84px 24px 92px;}
+.cs-hero .kicker{font-family:var(--font-mono);font-size:var(--text-sm);font-weight:600;letter-spacing:.02em;color:var(--violet-300);}
+.cs-hero h1{font-weight:700;font-size:clamp(34px,5vw,58px);line-height:1.06;letter-spacing:-.03em;color:#fff;max-width:20ch;margin:18px 0 0;}
+.grad-text{background:linear-gradient(120deg,#C39CF7,#FB7657);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.cs-hero .sub{font-size:var(--text-xl);line-height:1.55;color:rgba(255,255,255,.82);margin:22px 0 0;max-width:60ch;}
+.cs-hero .thread{font-size:var(--text-base);line-height:1.65;color:rgba(255,255,255,.66);margin:20px 0 0;max-width:62ch;}
+.cs-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
+.cs-meta span{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:var(--radius-full);background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);color:#fff;font-size:var(--text-sm);font-weight:600;}
+.cs-meta .plat{background:rgba(255,255,255,.14);}
+.cs-hero .cta{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap;}
+
+/* proof strip (dark, indexed baseline bars) */
+.proof{background:var(--gray-950);background-image:var(--gradient-mesh);padding:80px 0;}
+.proof .inner{max-width:960px;margin:0 auto;text-align:center;}
+.proof h2{font-weight:700;font-size:var(--text-4xl);letter-spacing:-.02em;color:#fff;margin:12px 0 0;}
+.proof .plead{font-size:var(--text-lg);line-height:1.6;color:rgba(255,255,255,.78);margin:14px auto 0;max-width:56ch;}
+.statpairs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px;}
+.sp{padding:24px 22px;border-radius:var(--radius-2xl);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(6px);}
+.sp .lab{font-size:var(--text-sm);font-weight:600;color:rgba(255,255,255,.7);}
+.sp .val{display:flex;align-items:baseline;gap:8px;margin-top:14px;font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;line-height:1;}
+.sp .from{font-size:var(--text-lg);color:rgba(255,255,255,.5);}
+.sp .arw{font-size:var(--text-base);color:var(--coral-400);}
+.sp .to{font-size:clamp(24px,3vw,32px);background:linear-gradient(120deg,#C39CF7,#FB7657);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.sp .note{display:block;margin-top:12px;font-family:var(--font-mono);font-size:10px;letter-spacing:.02em;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.pcap{margin-top:40px;max-width:760px;margin-left:auto;margin-right:auto;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);font-size:var(--text-sm);line-height:1.6;color:rgba(255,255,255,.66);text-align:center;}
+.pcap b{color:#fff;font-weight:700;}
+@media(max-width:820px){.statpairs{grid-template-columns:repeat(2,1fr);}}
+
+/* case sections */
+.cs{padding:80px 0;}
+.cs.alt{background:var(--gray-50);}
+.cs .eyebrow{display:block;margin-bottom:14px;}
+.cs h2{font-weight:700;font-size:var(--text-4xl);letter-spacing:-.025em;line-height:1.12;max-width:20ch;}
+.cs p{font-size:var(--text-lg);line-height:1.7;color:var(--text-secondary);margin:18px 0 0;max-width:64ch;}
+.cs p b{color:var(--text-primary);font-weight:700;}
+
+/* hypotheses */
+.hyp{display:grid;gap:14px;margin-top:32px;}
+.hyp .h{display:flex;gap:16px;align-items:flex-start;padding:22px 24px;border-radius:var(--radius-xl);background:var(--surface-card);border:1px solid var(--border-subtle);box-shadow:var(--shadow-sm);}
+.hyp .n{flex:none;width:34px;height:34px;border-radius:var(--radius-md);background:var(--surface-brand-subtle);color:var(--indigo-600);font-family:var(--font-display);font-weight:800;display:flex;align-items:center;justify-content:center;}
+.hyp .t{font-size:var(--text-base);line-height:1.6;color:var(--text-secondary);margin:0;}
+.hyp .t b{color:var(--text-primary);}
+
+/* mechanism */
+.mech{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;}
+.mech .step{padding:26px 24px;border-radius:var(--radius-xl);background:var(--surface-card);border:1px solid var(--border-subtle);box-shadow:var(--shadow-sm);}
+.mech .step .n{width:42px;height:42px;border-radius:var(--radius-lg);background:var(--gradient-brand);color:#fff;font-family:var(--font-display);font-weight:800;font-size:var(--text-lg);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-brand);}
+.mech .step h3{font-weight:600;font-size:var(--text-xl);letter-spacing:-.01em;margin:16px 0 8px;}
+.mech .step p{font-size:var(--text-base);line-height:1.6;color:var(--text-secondary);margin:0;max-width:none;}
+.mech-note{margin-top:24px;display:flex;gap:12px;align-items:flex-start;padding:20px 22px;border-radius:var(--radius-xl);background:var(--surface-brand-subtle);border:1px solid var(--indigo-100);}
+.mech-note svg{width:22px;height:22px;flex:none;color:var(--indigo-600);margin-top:1px;}
+.mech-note p{margin:0;font-size:var(--text-base);line-height:1.6;color:var(--text-secondary);max-width:none;}
+.mech-note b{color:var(--text-primary);}
+@media(max-width:760px){.mech{grid-template-columns:1fr;}}
+
+/* result list */
+.rlist{list-style:none;padding:0;margin:30px 0 0;display:grid;gap:16px;}
+.rlist li{display:flex;gap:14px;align-items:flex-start;font-size:var(--text-lg);line-height:1.6;color:var(--text-secondary);max-width:70ch;}
+.rlist li svg{width:24px;height:24px;flex:none;color:var(--green-600);margin-top:2px;}
+.rlist li b{color:var(--text-primary);font-weight:700;}
+
+/* proof close */
+.close{display:grid;gap:14px;margin-top:32px;}
+.close .c{padding:22px 24px;border-radius:var(--radius-xl);background:var(--surface-card);border:1px solid var(--border-subtle);box-shadow:var(--shadow-sm);}
+.close .c .k{display:inline-flex;align-items:center;gap:8px;font-size:var(--text-sm);font-weight:700;color:var(--green-700);}
+.close .c .k svg{width:16px;height:16px;color:var(--green-600);}
+.close .c p{margin:8px 0 0;font-size:var(--text-base);line-height:1.6;color:var(--text-secondary);max-width:none;}
+.honest{margin-top:20px;font-size:var(--text-sm);line-height:1.6;color:var(--text-tertiary);border-left:3px solid var(--border-default);padding:6px 0 6px 16px;max-width:64ch;}
+
+/* segments served */
+.segs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px;}
+.seg{padding:24px;border-radius:var(--radius-xl);background:var(--surface-card);border:1px solid var(--border-subtle);box-shadow:var(--shadow-sm);}
+.seg .tag{font-family:var(--font-mono);font-size:var(--text-xs);font-weight:600;color:var(--text-brand);}
+.seg h3{font-weight:600;font-size:var(--text-lg);letter-spacing:-.01em;margin:8px 0 6px;}
+.seg p{font-size:var(--text-sm);line-height:1.55;color:var(--text-secondary);margin:0;max-width:none;}
+@media(max-width:760px){.segs{grid-template-columns:1fr;}}
+
+/* cta */
+.cta-sec{padding:88px 0;background:var(--surface-page);}
+.cta-box{position:relative;overflow:hidden;border-radius:var(--radius-3xl);background:var(--gradient-brand);padding:64px 44px;text-align:center;box-shadow:var(--shadow-brand-lg);}
+.cta-box .glow{position:absolute;inset:0;background-image:radial-gradient(60% 120% at 100% 0%,rgba(251,118,87,.5) 0%,transparent 55%);}
+.cta-box .in{position:relative;}
+.cta-box h2{font-weight:700;font-size:var(--text-4xl);letter-spacing:-.025em;color:#fff;margin:0;}
+.cta-box p{font-size:var(--text-xl);color:rgba(255,255,255,.9);margin:14px auto 28px;max-width:520px;}
+
+/* footer */
+.ft{background:var(--gray-950);color:rgba(255,255,255,.7);padding:64px 0 40px;}
+.ft .cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;}
+.ft .word{color:#fff;}
+.ft .blurb{font-size:var(--text-sm);line-height:1.6;margin:16px 0 20px;max-width:300px;}
+.ft .contact{display:flex;flex-direction:column;gap:10px;}
+.ft .contact div{display:flex;align-items:flex-start;gap:8px;font-size:var(--text-sm);}
+.ft .contact svg{width:15px;height:15px;margin-top:3px;flex:none;}
+.ft .contact .muted{color:rgba(255,255,255,.5);}
+.ft h4{font-size:var(--text-sm);font-weight:700;color:#fff;margin:0 0 14px;}
+.ft ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.ft ul a{font-size:var(--text-sm);color:rgba(255,255,255,.7);}
+.ft ul a:hover{color:#fff;}
+.ft .bar{display:flex;justify-content:space-between;align-items:center;margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:var(--text-sm);flex-wrap:wrap;gap:12px;}
+.ft .bar a{color:rgba(255,255,255,.6);}
+@media(max-width:860px){.ft .cols{grid-template-columns:1fr 1fr;}}
+
+/* cookie banner */
+.cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;max-width:760px;margin:0 auto;background:var(--gray-0);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);padding:18px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;transform:translateY(140%);transition:transform .4s var(--ease-out);}
+.cookie.show{transform:none;}
+.cookie p{margin:0;font-size:var(--text-sm);line-height:1.5;color:var(--text-secondary);flex:1;min-width:240px;}
+.cookie p b{color:var(--text-primary);font-weight:700;}
+.cookie .acts{display:flex;gap:10px;}
+.cookie .acts button{font-family:var(--font-sans);font-weight:600;font-size:var(--text-sm);border-radius:var(--radius-md);padding:9px 16px;cursor:pointer;border:1px solid var(--border-default);background:#fff;color:var(--text-secondary);transition:all .14s;}
+.cookie .acts .acc{background:var(--indigo-600);border-color:transparent;color:#fff;}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="i-arrow-right" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></g>
+    <g id="i-check" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></g>
+    <g id="i-spark" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></g>
+    <g id="i-pin" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></g>
+  </defs>
+</svg>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="logo" href="index.html#top" aria-label="mlcrm home">
+      <svg class="mark" viewBox="0 0 48 48" fill="none" role="img" aria-label="mlcrm">
+        <defs><linearGradient id="bm" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#5048CB"/><stop offset=".55" stop-color="#7C39D4"/><stop offset="1" stop-color="#9050E6"/></linearGradient></defs>
+        <rect x=".5" y=".5" width="47" height="47" rx="12" fill="url(#bm)"/>
+        <g stroke="#fff" stroke-width="2.2" stroke-linecap="round"><line x1="14" y1="15" x2="24" y2="24" stroke-opacity=".85"/><line x1="24" y1="24" x2="34" y2="33" stroke-opacity=".85"/><line x1="34" y1="15" x2="24" y2="24" stroke-opacity=".55"/></g>
+        <g fill="#fff"><circle cx="14" cy="15" r="3.6"/><circle cx="34" cy="15" r="3" fill-opacity=".78"/><circle cx="24" cy="24" r="4.4"/><circle cx="34" cy="33" r="3.6"/></g>
+      </svg>
+      <span class="word">mlcrm</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html#solutions">Solutions</a>
+      <a href="index.html#cases">Case studies</a>
+      <a href="index.html#about">About</a>
+    </nav>
+    <div class="hdr-cta">
+      <a class="btn btn-grad" href="https://calendar.app.google/7uNh9hJfqoH52geQA" target="_blank" rel="noopener">Book a call <svg class="icn" style="width:16px;height:16px"><use href="#i-arrow-right"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="cs-hero">
+  <div class="mesh"></div><div class="vig"></div>
+  <div class="wrap">
+    <span class="kicker">Case 01 · Bloomreach · Ecommerce</span>
+    <h1>Same list, same send. A personal category signal <span class="grad-text">did the rest.</span></h1>
+    <p class="sub">A music-instrument &amp; pro-audio retailer turned the behavioural data already flowing into Bloomreach into a per-customer category signal. In a controlled A/B — with opens held level — click-through rose from 1.32% to 1.49%, and revenue per subscriber followed.</p>
+    <p class="thread">The kind of work three teams tend to ask for at once: teams who've just adopted a platform and need it to start producing, scaling teams whose retention revenue has plateaued, and in-house teams with the ideas but not the modelling bandwidth. One signal served all three.</p>
+    <div class="cs-meta">
+      <span class="plat">Platform · Bloomreach</span>
+      <span>Controlled A/B · same audience</span>
+      <span>Built with existing data</span>
+    </div>
+    <div class="cta">
+      <a class="btn btn-grad" href="https://calendar.app.google/7uNh9hJfqoH52geQA" target="_blank" rel="noopener" style="padding:14px 24px;font-size:1.0625rem">Book a 20-minute look <svg class="icn"><use href="#i-arrow-right"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <div class="inner reveal">
+      <span class="eyebrow" style="color:rgba(255,255,255,.7)">The proof — controlled A/B</span>
+      <h2>Same audience, split in half. The content did the rest.</h2>
+      <p class="plead">We split one mid-sized audience down the middle and changed only what was inside the send. Opens landed level on both sides — so nothing here is explained by who opened, only by what they found.</p>
+    </div>
+    <div class="statpairs reveal">
+      <div class="sp"><span class="lab">Open rate</span><div class="val"><span class="from">48.3%</span><span class="arw">→</span><span class="to">48.1%</span></div><span class="note">Held level · content-attributable</span></div>
+      <div class="sp"><span class="lab">Click-through</span><div class="val"><span class="from">1.32%</span><span class="arw">→</span><span class="to">1.49%</span></div><span class="note">Controlled · robust</span></div>
+      <div class="sp"><span class="lab">Clicks among openers</span><div class="val"><span class="from">2.7%</span><span class="arw">→</span><span class="to">3.1%</span></div><span class="note">Same openers, more clicked</span></div>
+      <div class="sp"><span class="lab">Revenue / 1,000 subscribers</span><div class="val"><span class="from">~€41</span><span class="arw">→</span><span class="to">~€99</span></div><span class="note">Directional · first send</span></div>
+    </div>
+    <p class="pcap reveal"><b>Read this honestly.</b> Click-through is the result we stand behind fully — measured against a control with opens held level. The revenue figure is real but early, resting on a small pool of first-send buyers, so we treat it as directional — the honest shape of it, not a rounded-up headline.</p>
+  </div>
+</section>
+
+<section class="cs">
+  <div class="wrap narrow reveal">
+    <span class="eyebrow">Context</span>
+    <h2>A capable platform, a big base — and generic sends</h2>
+    <p>The retailer had everything a modern lifecycle program needs: a large, engaged subscriber base and a capable engagement platform in Bloomreach. What it didn't have was a reason for each customer to click. Sends went out one-size-fits-all, and revenue-per-send had settled into a plateau — the base was being emailed, but not <b>read</b>.</p>
+    <p>The behavioural signal to do better was already there — every view, cart and purchase flowing into the platform. It just wasn't being turned into anything a customer could feel.</p>
+  </div>
+</section>
+
+<section class="cs alt">
+  <div class="wrap narrow reveal">
+    <span class="eyebrow">Challenge</span>
+    <h2>The data existed. The signal didn't — and neither did the spare bandwidth</h2>
+    <p>Three things stood between the base and the revenue in it. The personalization logic had never been built. A real data gap sat underneath it — the cart event didn't carry its category, so a key intent signal was missing. And the in-house team could run business-as-usual, but not stand up behavioural modelling on top of it without dropping everything else.</p>
+    <p>So we set out to prove a few things, deliberately, before scaling anything.</p>
+    <div class="hyp">
+      <div class="h"><span class="n">1</span><p class="t"><b>If each send leads with the categories a customer actually shows affinity for,</b> click-through rises — without changing send volume or leaning on opens.</p></div>
+      <div class="h"><span class="n">2</span><p class="t"><b>The behavioural events already in Bloomreach carry enough signal</b> to personalize well — no new platform, no new data contract, no new headcount.</p></div>
+      <div class="h"><span class="n">3</span><p class="t"><b>A disciplined rotation keeps it fresh,</b> so the lift holds as it scales across markets rather than fading after the novelty.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cs">
+  <div class="wrap narrow reveal">
+    <span class="eyebrow">Approach</span>
+    <h2>A category affinity signal that learns each customer's taste — and keeps up</h2>
+    <p>We built the signal on the data already there. Nothing new to buy, nothing new for the team to learn. Three moving parts, and a data gap fixed along the way.</p>
+    <div class="mech">
+      <div class="step"><span class="n">1</span><h3>Reads intent</h3><p>A purchase says more than a cart; a cart says more than a view. Each event is weighted by how much intent it really carries.</p></div>
+      <div class="step"><span class="n">2</span><h3>Stays current</h3><p>It leans on the last 30 days, so the signal moves as taste moves — this season's interest, not last year's.</p></div>
+      <div class="step"><span class="n">3</span><h3>Rotates cleanly</h3><p>Two personal categories per send on a fixed multi-week rotation, with dedup, quality guardrails, and a sensible default for cold profiles.</p></div>
+    </div>
+    <div class="mech-note"><svg><use href="#i-spark"/></svg><p><b>Built entirely inside Bloomreach.</b> No new platform, no new headcount — and we closed the data gap by reconstructing the missing cart-event category, so the intent signal was complete.</p></div>
+  </div>
+</section>
+
+<section class="cs alt">
+  <div class="wrap narrow reveal">
+    <span class="eyebrow">Result</span>
+    <h2>Proven small, then it scaled</h2>
+    <ul class="rlist">
+      <li><svg><use href="#i-check"/></svg><span><b>The controlled test.</b> On a mid-sized audience split in two, with opens held level, click-through rose from <b>1.32% to 1.49%</b> — and among the people who opened, clicks climbed from <b>2.7% to 3.1%</b>. On the buyers in that first send, revenue per thousand subscribers moved from roughly <b>€41 to €99</b>: directional, given the small pool of buyers, but pointing firmly the same way.</span></li>
+      <li><svg><use href="#i-check"/></svg><span><b>It held as it grew.</b> Run again the next week on a larger, multi-market audience, the lift showed up in the majority of markets — for instance <b>1.8% to 1.9%</b> in one and <b>2.6% to 2.8%</b> in another. Openers behaved the same on both sides; where a market moved differently, we learned from it rather than looked away.</span></li>
+      <li><svg><use href="#i-check"/></svg><span><b>It won the month in production.</b> Live, the signal powered two sends — one small-scale, one a large-scale flagship. Both became the <b>best-performing campaigns of the month</b>, at <b>2.2% and 2.7%</b> click rates against a 0.4–1.2% norm. Modeled at a typical €200–300 order value, that points to roughly <b>€80–120 revenue per thousand subscribers</b> on the affinity sends — several times an ordinary send. <em>(Illustrative model; the measured figure is the €41 → €99 above.)</em></span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="cs">
+  <div class="wrap narrow reveal">
+    <span class="eyebrow">Proof — the hypotheses, closed</span>
+    <h2>What the test actually settled</h2>
+    <div class="close">
+      <div class="c"><span class="k"><svg><use href="#i-check"/></svg> Hypothesis 1 — confirmed</span><p>Measured against a control, with opens held equal, the +13% click-through is attributable to the content, not the reach. Leading with real category affinity moves clicks.</p></div>
+      <div class="c"><span class="k"><svg><use href="#i-check"/></svg> Hypothesis 2 — confirmed</span><p>It ran entirely on events already in Bloomreach — no new platform, no new data contract, no new headcount. The signal was in the base all along.</p></div>
+      <div class="c"><span class="k"><svg><use href="#i-check"/></svg> Hypothesis 3 — confirmed</span><p>The rotation held up as it scaled across markets, and the personalized flagship became the top send of the month after rollout — evidence it keeps working, not just launches well.</p></div>
+    </div>
+    <p class="honest">Kept honest: click-through is the robust, controlled result. The purchase, AOV and revenue-per-subscriber figures are directional — real, but drawn from a small first-test base — so we scope them to that first send rather than present them as a steady-state guarantee.</p>
+  </div>
+</section>
+
+<section class="cs alt">
+  <div class="wrap narrow reveal">
+    <span class="eyebrow">Who this is for</span>
+    <h2>One build, three situations it speaks to</h2>
+    <div class="segs">
+      <div class="seg"><span class="tag">Segment 01</span><h3>Just adopted the platform</h3><p>You've signed Bloomreach (or Braze, or Adobe) and need the license to start producing — fast, and without a rebuild.</p></div>
+      <div class="seg"><span class="tag">Segment 02</span><h3>Retention revenue has plateaued</h3><p>Your base is large and your sends are fine, but revenue-per-send has flattened. The lift is hiding in personalization you haven't built yet.</p></div>
+      <div class="seg"><span class="tag">Segment 03</span><h3>The team is at capacity</h3><p>You have the ideas and the platform — just not the spare bandwidth to stand up behavioural modelling on top of business-as-usual.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="wrap">
+    <div class="cta-box reveal">
+      <div class="glow"></div>
+      <div class="in">
+        <h2>Most brands don't have a tooling gap</h2>
+        <p>They have a "use what you already pay for" gap. Book a 20-minute look and we'll show you where yours is.</p>
+        <a class="btn btn-white" href="https://calendar.app.google/7uNh9hJfqoH52geQA" target="_blank" rel="noopener" style="padding:14px 26px;font-size:1.0625rem">Book a 20-minute look <svg class="icn"><use href="#i-arrow-right"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <span class="logo"><svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x=".5" y=".5" width="47" height="47" rx="12" fill="#5048CB"/><g stroke="#fff" stroke-width="2.2" stroke-linecap="round"><line x1="14" y1="15" x2="24" y2="24" stroke-opacity=".85"/><line x1="24" y1="24" x2="34" y2="33" stroke-opacity=".85"/><line x1="34" y1="15" x2="24" y2="24" stroke-opacity=".55"/></g><g fill="#fff"><circle cx="14" cy="15" r="3.6"/><circle cx="34" cy="15" r="3" fill-opacity=".78"/><circle cx="24" cy="24" r="4.4"/><circle cx="34" cy="33" r="3.6"/></g></svg><span class="word">mlcrm</span></span>
+        <p class="blurb">Senior CRM and lifecycle marketing for teams whose engagement platform should be earning more than it costs.</p>
+        <div class="contact">
+          <div><svg><use href="#i-pin"/></svg> <span>EU · Lisbon, Portugal 1200-001</span></div>
+          <div><svg><use href="#i-pin"/></svg> <span>US · Cheyenne, WY 82001</span></div>
+          <div><svg><use href="#i-arrow-right"/></svg> <a href="mailto:pilot@mlcrm.cloud" class="muted">pilot@mlcrm.cloud</a></div>
+        </div>
+      </div>
+      <div>
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="ecommerce.html">Make your platform earn its keep</a></li>
+          <li><a href="capacity.html">Senior CRM capacity</a></li>
+          <li><a href="fmcg.html">First-party data (FMCG)</a></li>
+          <li><a href="fractional.html">Fractional CRM leadership</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#cases">Case studies</a></li>
+          <li><a href="index.html#platforms">Technology partners</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Cookie policy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">GDPR statement</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bar">
+      <span>© 2026 mlcrm.cloud · all rights reserved</span>
+      <span style="display:inline-flex;gap:16px"><a href="#">LinkedIn</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookie" role="dialog" aria-label="Cookie notice">
+  <p><b>We respect your privacy.</b> This site keeps things simple — we don't track you with advertising or analytics cookies. Accept to dismiss this notice.</p>
+  <div class="acts"><button class="rej" id="ckRej">Reject</button><button class="acc" id="ckAcc">Accept</button></div>
+</div>
+
+<script>
+(function(){
+  var hdr=document.getElementById('hdr');
+  var onScroll=function(){hdr.classList.toggle('scrolled',window.scrollY>8);};
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el,i){el.style.transitionDelay=(Math.min(i,4)*60)+'ms';io.observe(el);});
+
+  var ck=document.getElementById('cookie');
+  try{if(!localStorage.getItem('mlcrm_cookie')){setTimeout(function(){ck.classList.add('show');},900);}}catch(e){setTimeout(function(){ck.classList.add('show');},900);}
+  function close(v){try{localStorage.setItem('mlcrm_cookie',v);}catch(e){}ck.classList.remove('show');}
+  document.getElementById('ckAcc').addEventListener('click',function(){close('accepted');});
+  document.getElementById('ckRej').addEventListener('click',function(){close('rejected');});
+})();
+</script>
+</body>
+</html>
