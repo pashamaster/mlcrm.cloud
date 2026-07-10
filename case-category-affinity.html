@@ -104,7 +104,7 @@ h1,h2,h3{font-family:var(--font-display);margin:0;}
 .chart-note{margin-top:20px;font-size:var(--text-xs);color:var(--text-tertiary);line-height:1.55;}
 .chart-note b{color:var(--text-secondary);font-weight:700;}
 
-/* personalised-frequency rows */
+/* personalized-frequency rows */
 .freq{margin-top:26px;display:grid;gap:12px;}
 .freq .r{display:grid;grid-template-columns:170px 168px 1fr;gap:16px;align-items:center;padding:16px 18px;border-radius:var(--radius-xl);background:var(--surface-card);border:1px solid var(--border-subtle);box-shadow:var(--shadow-sm);}
 .freq .nm{font-size:var(--text-base);font-weight:700;color:var(--text-primary);}
@@ -150,7 +150,7 @@ h1,h2,h3{font-family:var(--font-display);margin:0;}
 .statpairs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px;}
 .sp{padding:24px 22px;border-radius:var(--radius-2xl);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(6px);text-align:left;}
 .sp .lab{font-size:var(--text-sm);font-weight:600;color:rgba(255,255,255,.7);}
-.sp .val{display:flex;align-items:baseline;gap:8px;margin-top:14px;font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;line-height:1;}
+.sp .val{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-top:14px;font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;line-height:1;}
 .sp .from{font-size:var(--text-lg);color:rgba(255,255,255,.5);}
 .sp .arw{font-size:var(--text-base);color:var(--coral-400);}
 .sp .to{font-size:clamp(24px,3vw,32px);background:linear-gradient(120deg,#C39CF7,#FB7657);-webkit-background-clip:text;background-clip:text;color:transparent;}
@@ -158,6 +158,7 @@ h1,h2,h3{font-family:var(--font-display);margin:0;}
 .pcap{margin-top:40px;max-width:760px;margin-left:auto;margin-right:auto;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);font-size:var(--text-sm);line-height:1.6;color:rgba(255,255,255,.66);text-align:center;}
 .pcap b{color:#fff;font-weight:700;}
 @media(max-width:820px){.statpairs{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.statpairs{grid-template-columns:1fr;}}
 
 /* production ranking bars */
 .prod{margin-top:28px;display:grid;gap:12px;}
@@ -281,7 +282,7 @@ h1,h2,h3{font-family:var(--font-display);margin:0;}
     <span class="eyebrow">The client &amp; the brief</span>
     <h2>A big audience, mailed by habit</h2>
     <p>Bax Music is one of Europe's largest music-instrument and pro-audio retailers — a catalogue that runs from a first ukulele to a studio-grade mixing desk. Email is a core channel, and Bax was already doing the hard part: two <b>business-as-usual (BAU)</b> campaigns every week, without fail. A <b>Friday-afternoon stock-clearance</b> with six items to move, and a <b>Sunday send</b> of hand-picked products for discovery.</p>
-    <p>Consistent and reliable — and identical for everyone. Same slot, same logic, whether a subscriber had bought last week or hadn't opened in months. The brief was simple to say and harder to do: keep the reliability, but make every send <b>personalised</b>, better-timed, and worth more — without adding hours to the team's week.</p>
+    <p>Consistent and reliable — and identical for everyone. Same slot, same logic, whether a subscriber had bought last week or hadn't opened in months. The brief was simple to say and harder to do: keep the reliability, but make every send <b>personalized</b>, better-timed, and worth more — without adding hours to the team's week.</p>
     <p class="pull">Keep the reliability. Lose the autopilot.</p>
   </div>
 </section>
@@ -289,8 +290,8 @@ h1,h2,h3{font-family:var(--font-display);margin:0;}
 <section class="cs">
   <div class="wrap narrow reveal">
     <span class="eyebrow">How we work</span>
-    <h2>Personalisation at scale — on the stack they already run</h2>
-    <p>The goal was personalisation: every subscriber getting their own version of Bax's always-on email, not one average message sent to all. We're a senior CRM collective, and we chase that goal a particular way — we get more out of the platform a client already runs, in Bax's case <b>Bloomreach</b>, and coach the team to own it, rather than reaching for new tools. And we measure against a control, so a result is a result and not a story.</p>
+    <h2>Personalization at scale — on the stack they already run</h2>
+    <p>The goal was personalization: every subscriber getting their own version of Bax's always-on email, not one average message sent to all. We're a senior CRM collective, and we chase that goal a particular way — we get more out of the platform a client already runs, in Bax's case <b>Bloomreach</b>, and coach the team to own it, rather than reaching for new tools. And we measure against a control, so a result is a result and not a story.</p>
     <p>The work started, as it always does, with an honest look at what was actually happening. Then it moved across three levers: <b>who</b> each send is for, <b>what</b> goes inside it, and — last of all — <b>when</b> it lands.</p>
   </div>
 </section>
@@ -298,21 +299,21 @@ h1,h2,h3{font-family:var(--font-display);margin:0;}
 <section class="cs alt">
   <div class="wrap narrow reveal">
     <span class="eyebrow">Move 1 · Who gets it</span>
-    <h2>A personalised send frequency for every segment</h2>
-    <p>An audience audit is unglamorous and always revealing. We mapped Bax's base by real engagement — from brand-new subscribers, through active openers and clickers, down to the various shades of lapsing and inactive — and found a database contacted by habit rather than behaviour. So the first layer of personalisation wasn't the content at all. It was the cadence: <b>how often each person hears from Bax now depends on how they engage.</b></p>
+    <h2>A personalized send frequency for every segment</h2>
+    <p>An audience audit is unglamorous and always revealing. We mapped Bax's base by real engagement — from brand-new subscribers, through active openers and clickers, down to the various shades of lapsing and inactive — and found a database contacted by habit rather than behavior. So the first layer of personalization wasn't the content at all. It was the cadence: <b>how often each person hears from Bax now depends on how they engage.</b></p>
     <div class="chartwrap reveal">
-      <div class="chart-h">Personalised contact cadence, by engagement segment</div>
+      <div class="chart-h">Personalized contact cadence, by engagement segment</div>
       <p class="chart-sub">Sorted from newest to least active — each segment on its own rhythm, following email deliverability best practice.</p>
       <div class="freq">
         <div class="r"><div class="nm">New</div><span class="cad">Onboarding</span><div class="note">A welcome sequence first, then an easing-in cadence — earn the inbox before turning up the volume.</div></div>
         <div class="r"><div class="nm">Active · opened</div><span class="cad">Full cadence</span><div class="note">They're reading. Give them the full program, with room to layer relevance on top.</div></div>
-        <div class="r"><div class="nm">Active · clicked</div><span class="cad">Full + triggers</span><div class="note">Highest intent — full cadence plus behavioural triggers on browse and cart activity.</div></div>
+        <div class="r"><div class="nm">Active · clicked</div><span class="cad">Full + triggers</span><div class="note">Highest intent — full cadence plus behavioral triggers on browse and cart activity.</div></div>
         <div class="r"><div class="nm">Active · lapsing</div><span class="cad">Re-engagement</span><div class="note">Attention is slipping. Shift the mix toward win-back content before frequency does harm.</div></div>
         <div class="r"><div class="nm">Active · lapsed</div><span class="cad">Win-back, then ease</span><div class="note">A focused win-back push; if there's no response, step the cadence down rather than push harder.</div></div>
         <div class="r"><div class="nm">Passive</div><span class="cad">Reduced</span><div class="note">Fewer, stronger sends — protect engagement rates and sender reputation.</div></div>
         <div class="r"><div class="nm">Inactive</div><span class="cad">Sunset &amp; suppress</span><div class="note">Minimal contact, then suppression — keep the sending reputation, and deliverability, clean.</div></div>
       </div>
-      <p class="chart-note"><b>Best practice, made concrete:</b> matching frequency to engagement protects deliverability, cuts wasted sends, and keeps the winnable segments warm — the groundwork every later layer of personalisation depends on.</p>
+      <p class="chart-note"><b>Best practice, made concrete:</b> matching frequency to engagement protects deliverability, cuts wasted sends, and keeps the winnable segments warm — the groundwork every later layer of personalization depends on.</p>
     </div>
   </div>
 </section>
@@ -321,10 +322,10 @@ h1,h2,h3{font-family:var(--font-display);margin:0;}
   <div class="wrap narrow reveal">
     <span class="eyebrow">Move 2 · What's inside</span>
     <h2>A category signal that learns each customer's taste</h2>
-    <p>This is the heart of the personalisation: the content itself. Working from behaviour already flowing into Bloomreach, we built a per-customer <b>affinity ranking</b> — using capability Bax already owned — that finds each subscriber's top six product categories.</p>
+    <p>This is the heart of the personalization: the content itself. Working from behavior already flowing into Bloomreach, we built a per-customer <b>affinity ranking</b> — using capability Bax already owned — that finds each subscriber's top six product categories.</p>
     <div class="mech reveal">
       <div class="step"><span class="n">1</span><h3>Reads intent</h3><p>A purchase counts more than a cart; a cart more than a view. Every signal is weighted by how much intent it truly carries.</p></div>
-      <div class="step"><span class="n">2</span><h3>Stays current</h3><p>It leans on recent behaviour, so the signal moves as taste moves — this month's interest, not last year's.</p></div>
+      <div class="step"><span class="n">2</span><h3>Stays current</h3><p>It leans on recent behavior, so the signal moves as taste moves — this month's interest, not last year's.</p></div>
       <div class="step"><span class="n">3</span><h3>Ranks the six</h3><p>The output is an ordered top six categories per person — the raw material every send now draws from.</p></div>
     </div>
     <h3>Then the real problem: which two, this week?</h3>
@@ -340,7 +341,7 @@ h1,h2,h3{font-family:var(--font-display);margin:0;}
         <div class="wk3"><span class="t">Week 3</span><div class="cats"><div class="cat"><span class="n">03</span> 3rd category</div><div class="cat"><span class="n">05</span> 5th category</div></div></div>
         <div class="loop"><svg><use href="#i-repeat"/></svg><span>loops to<br>week 1</span></div>
       </div>
-      <p class="chart-note"><b>The read:</b> each week pairs a stronger affinity with a lesser one — <b>1 + 6, 2 + 4, 3 + 5</b> — so every send balances a sure-thing category with room to discover. Personalised without being repetitive, automated without being manual; deduplication and quality guardrails keep each send clean, and a sensible default covers brand-new profiles.</p>
+      <p class="chart-note"><b>The read:</b> each week pairs a stronger affinity with a lesser one — <b>1 + 6, 2 + 4, 3 + 5</b> — so every send balances a sure-thing category with room to discover. Personalized without being repetitive, automated without being manual; deduplication and quality guardrails keep each send clean, and a sensible default covers brand-new profiles.</p>
     </div>
     <div class="mech-note"><svg><use href="#i-spark"/></svg><p><b>All of it runs on the Bloomreach stack Bax already runs.</b> Our job wasn't to add tools — it was to get more out of the one they'd already invested in, and to coach the team to own it. We also closed a real data gap along the way: the cart event wasn't carrying its category, so we reconstructed it and the intent signal finally read complete.</p></div>
   </div>
@@ -351,7 +352,7 @@ h1,h2,h3{font-family:var(--font-display);margin:0;}
     <div class="inner reveal">
       <span class="eyebrow" style="color:rgba(255,255,255,.7)">The A/B test</span>
       <h2>We changed only the content. The audience did the rest.</h2>
-      <p class="plead">We never roll out on a hunch. To check whether personalised category content actually earns its place, we split one mid-sized audience straight down the middle — one half got the send as it was, the other got the same email, same time, with the personalisation switched on. Opens landed level on both sides, which is the whole point: whatever moved next, moved because of the content.</p>
+      <p class="plead">We never roll out on a hunch. To check whether personalized category content actually earns its place, we split one mid-sized audience straight down the middle — one half got the send as it was, the other got the same email, same time, with the personalization switched on. Opens landed level on both sides, which is the whole point: whatever moved next, moved because of the content.</p>
     </div>
     <div class="statpairs reveal">
       <div class="sp"><span class="lab">Open rate</span><div class="val"><span class="from">48.3%</span><span class="arw">→</span><span class="to">48.1%</span></div><span class="note">Held level · content-attributable</span></div>
@@ -385,7 +386,7 @@ h1,h2,h3{font-family:var(--font-display);margin:0;}
   <div class="wrap narrow reveal">
     <span class="eyebrow">Move 3 · When it lands</span>
     <h2>And finally, the timing</h2>
-    <p>With the audience and the content personalised, we turned last to <em>when</em> Bax sends. A brand's default habits are easy to miss: across a full year of business-as-usual sends, engagement wasn't flat across the week. Some days consistently ran strong, while the long-standing Friday-afternoon slot consistently ran weakest — its opens often slipping a day late into the weekend.</p>
+    <p>With the audience and the content personalized, we turned last to <em>when</em> Bax sends. A brand's default habits are easy to miss: across a full year of business-as-usual sends, engagement wasn't flat across the week. Some days consistently ran strong, while the long-standing Friday-afternoon slot consistently ran weakest — its opens often slipping a day late into the weekend.</p>
     <div class="chartwrap reveal">
       <div class="chart-h">Relative engagement across the week</div>
       <p class="chart-sub">A year of always-on sends — shape only: the strong days versus the weakest slot.</p>
@@ -414,8 +415,8 @@ h1,h2,h3{font-family:var(--font-display);margin:0;}
     <span class="eyebrow">The outcome</span>
     <h2>An always-on program that finally acts like a strategy</h2>
     <ul class="rlist">
-      <li><svg><use href="#i-check"/></svg><span><b>Who —</b> every segment now has its own personalised cadence, matched to how it engages: the winnable groups kept warm, wasted sends cut, and deliverability protected.</span></li>
-      <li><svg><use href="#i-check"/></svg><span><b>What —</b> the personalised category content is A/B-proven (click-through 1.32% → 1.49%, opens held level), held up as it scaled, and produced the month's two best sends.</span></li>
+      <li><svg><use href="#i-check"/></svg><span><b>Who —</b> every segment now has its own personalized cadence, matched to how it engages: the winnable groups kept warm, wasted sends cut, and deliverability protected.</span></li>
+      <li><svg><use href="#i-check"/></svg><span><b>What —</b> the personalized category content is A/B-proven (click-through 1.32% → 1.49%, opens held level), held up as it scaled, and produced the month's two best sends.</span></li>
       <li><svg><use href="#i-check"/></svg><span><b>When —</b> the timing was tested against a full year of the brand's own data and tuned away from its weakest slot, toward the days subscribers actually read.</span></li>
       <li><svg><use href="#i-check"/></svg><span><b>How —</b> every layer built on the Bloomreach stack Bax already owned, with the team coached to run it, and every claim scoped to what it honestly shows.</span></li>
     </ul>

@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Building a B2B lead engine for Nebius Academy — a GTM case study — mlcrm</title>
-<meta name="description" content="How mlcrm built Nebius Academy's go-to-market lead engine on HubSpot — capture, AJTBD-driven ICP, lead scoring, and segmented nurture — turning anonymous traffic into sales-ready pipeline across LATAM, the US, and Europe.">
-<meta property="og:title" content="Building a B2B lead engine for Nebius Academy — a GTM case study — mlcrm">
-<meta property="og:description" content="Capture, ICP, scoring, and nurture on HubSpot — a full go-to-market lead engine that turns website traffic into a pipeline sales can trust.">
+<title>Privacy-first, multi-channel personalization on Bloomreach — a pet-care case study — mlcrm</title>
+<meta name="description" content="How mlcrm replatformed a global animal-health group from HubSpot to Bloomreach on Shopify — building privacy-first, multi-channel personalization across email, SMS, MMS, and consent-based Meta and Google audiences, with GDPR and anonymization built in.">
+<meta property="og:title" content="Privacy-first, multi-channel personalization on Bloomreach — a pet-care case study — mlcrm">
+<meta property="og:description" content="Personalized prospect activation and post-purchase, subscription pop-ups, and multi-channel orchestration — email, SMS, MMS, and consented paid audiences — all GDPR-compliant by design.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://mlcrm.cloud/case-nebius-academy">
+<meta property="og:url" content="https://mlcrm.cloud/case-pet-care-migration">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..600&family=JetBrains+Mono:wght@400;500;600&display=swap">
@@ -20,7 +20,6 @@
   --gray-0:#FFFFFF;--gray-25:#FCFCFB;--gray-50:#F8F8F6;--gray-100:#F1F1EE;--gray-200:#E6E5E1;--gray-300:#D5D3CD;--gray-400:#ABA89F;--gray-500:#807D74;--gray-600:#5F5C54;--gray-700:#46443E;--gray-800:#2E2C28;--gray-900:#1C1B18;--gray-950:#121110;
   --green-50:#E9F8F0;--green-600:#099250;--green-700:#087443;
   --gradient-brand:linear-gradient(120deg,#5048CB 0%,#7C39D4 52%,#9050E6 100%);
-  --gradient-hero:linear-gradient(135deg,#2C2769 0%,#5048CB 45%,#9050E6 100%);
   --gradient-mesh:radial-gradient(120% 120% at 0% 0%,#6562E0 0%,transparent 55%),radial-gradient(120% 120% at 100% 0%,#9050E6 0%,transparent 50%),radial-gradient(140% 140% at 50% 100%,#F25B3A 0%,transparent 45%);
   --surface-page:var(--gray-25);--surface-card:var(--gray-0);--surface-brand-subtle:var(--indigo-50);
   --text-primary:var(--gray-900);--text-secondary:var(--gray-600);--text-tertiary:var(--gray-500);--text-brand:var(--indigo-600);--text-accent:var(--coral-600);
@@ -76,11 +75,10 @@ h1,h2,h3{font-family:var(--font-display);margin:0;}
 .cs-hero .kicker{font-family:var(--font-mono);font-size:var(--text-sm);font-weight:600;letter-spacing:.02em;color:var(--violet-300);}
 .cs-hero h1{font-weight:700;font-size:clamp(32px,4.6vw,54px);line-height:1.08;letter-spacing:-.03em;color:#fff;margin:18px 0 0;}
 .grad-text{background:linear-gradient(120deg,#C39CF7,#FB7657);-webkit-background-clip:text;background-clip:text;color:transparent;}
-.cs-hero .sub{font-size:var(--text-xl);line-height:1.55;color:rgba(255,255,255,.82);margin:22px 0 0;max-width:62ch;}
+.cs-hero .sub{font-size:var(--text-xl);line-height:1.55;color:rgba(255,255,255,.82);margin:22px 0 0;max-width:64ch;}
 .clientbar{display:inline-flex;align-items:center;gap:14px;margin-top:30px;padding:12px 18px;border-radius:var(--radius-xl);background:#fff;box-shadow:var(--shadow-lg);}
 .clientbar .lbl{font-size:var(--text-xs);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-tertiary);}
 .clientbar .cn{font-family:var(--font-display);font-weight:700;font-size:var(--text-lg);letter-spacing:-.01em;color:var(--gray-900);}
-.clientbar img{height:24px;width:auto;display:block;}
 .cs-hero .cta{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap;}
 
 .cs{padding:76px 0;}
@@ -91,7 +89,7 @@ h1,h2,h3{font-family:var(--font-display);margin:0;}
 .cs p{font-size:var(--text-lg);line-height:1.75;color:var(--text-secondary);margin:20px 0 0;max-width:68ch;}
 .cs p b{color:var(--text-primary);font-weight:700;}
 .lede p{font-size:var(--text-xl);line-height:1.7;color:var(--text-secondary);}
-.pull{margin:34px 0 0;padding:4px 0 4px 22px;border-left:3px solid var(--indigo-300);font-family:var(--font-display);font-weight:600;font-size:var(--text-2xl);line-height:1.3;letter-spacing:-.01em;color:var(--text-primary);max-width:24ch;}
+.pull{margin:34px 0 0;padding:4px 0 4px 22px;border-left:3px solid var(--indigo-300);font-family:var(--font-display);font-weight:600;font-size:var(--text-2xl);line-height:1.3;letter-spacing:-.01em;color:var(--text-primary);max-width:26ch;}
 
 .chartwrap{margin-top:36px;padding:30px 28px;border-radius:var(--radius-2xl);background:var(--surface-card);border:1px solid var(--border-subtle);box-shadow:var(--shadow-sm);}
 .chart-h{font-size:var(--text-base);font-weight:700;color:var(--text-primary);}
@@ -99,9 +97,9 @@ h1,h2,h3{font-family:var(--font-display);margin:0;}
 .chart-note{margin-top:20px;font-size:var(--text-xs);color:var(--text-tertiary);line-height:1.55;}
 .chart-note b{color:var(--text-secondary);font-weight:700;}
 
-/* ICP / segment rows */
+/* scenario / measure rows */
 .freq{margin-top:26px;display:grid;gap:12px;}
-.freq .r{display:grid;grid-template-columns:210px 130px 1fr;gap:16px;align-items:center;padding:16px 18px;border-radius:var(--radius-xl);background:var(--surface-card);border:1px solid var(--border-subtle);box-shadow:var(--shadow-sm);}
+.freq .r{display:grid;grid-template-columns:200px 150px 1fr;gap:16px;align-items:center;padding:16px 18px;border-radius:var(--radius-xl);background:var(--surface-card);border:1px solid var(--border-subtle);box-shadow:var(--shadow-sm);}
 .freq .nm{font-size:var(--text-base);font-weight:700;color:var(--text-primary);}
 .freq .cad{justify-self:start;font-family:var(--font-mono);font-size:var(--text-xs);font-weight:600;color:var(--indigo-700);background:var(--surface-brand-subtle);border:1px solid var(--indigo-100);padding:6px 12px;border-radius:var(--radius-full);}
 .freq .note{font-size:var(--text-sm);line-height:1.55;color:var(--text-secondary);}
@@ -119,17 +117,19 @@ h1,h2,h3{font-family:var(--font-display);margin:0;}
 .mech-note b{color:var(--text-primary);}
 @media(max-width:760px){.mech{grid-template-columns:1fr;}}
 
-/* funnel */
-.funnel{margin-top:30px;display:grid;gap:8px;max-width:680px;}
-.funnel .st .bar{margin:0 auto;height:66px;border-radius:var(--radius-lg);background:var(--gradient-brand);display:flex;align-items:center;justify-content:space-between;padding:0 24px;color:#fff;box-shadow:var(--shadow-brand);}
-.funnel .st .nm{font-family:var(--font-display);font-weight:700;font-size:var(--text-lg);letter-spacing:-.01em;}
-.funnel .st .vv{font-family:var(--font-mono);font-weight:600;font-size:var(--text-sm);opacity:.9;}
-.funnel .conv{text-align:center;font-family:var(--font-mono);font-size:var(--text-xs);font-weight:600;color:var(--text-tertiary);padding:1px 0;}
-.funnel .mql .bar{background:linear-gradient(120deg,var(--violet-600),var(--violet-500));}
-.funnel .sql .bar{background:linear-gradient(120deg,var(--coral-600),var(--coral-500));}
-@media(max-width:560px){.funnel .st .bar{min-width:58%;padding:0 16px;height:60px;}.funnel .st .nm{font-size:var(--text-base);}.funnel .st .vv{display:none;}}
+/* multi-channel orchestration */
+.orch{margin-top:30px;display:grid;gap:12px;justify-items:center;text-align:center;}
+.orch .orow{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.orch .chip{display:inline-flex;align-items:center;gap:8px;padding:11px 17px;border-radius:var(--radius-full);background:var(--surface-card);border:1px solid var(--border-subtle);box-shadow:var(--shadow-sm);font-size:var(--text-sm);font-weight:600;color:var(--text-primary);}
+.orch .chip .d{width:8px;height:8px;border-radius:50%;background:var(--gradient-brand);flex:none;}
+.orch .chip.paid{background:var(--surface-brand-subtle);border-color:var(--indigo-100);color:var(--indigo-700);}
+.orch .chip.in{background:var(--gray-900);color:#fff;border-color:transparent;}
+.orch .chip.in .d{background:var(--coral-400);}
+.orch .hub{font-family:var(--font-display);font-weight:800;font-size:var(--text-2xl);color:#fff;background:var(--gradient-brand);padding:16px 34px;border-radius:var(--radius-xl);box-shadow:var(--shadow-brand);letter-spacing:-.01em;}
+.orch .arw{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--text-tertiary);}
+.orch .grp{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-tertiary);margin-bottom:2px;}
 
-/* A/B before -> after (dark) */
+/* results (dark) */
 .proof{background:var(--gray-950);background-image:var(--gradient-mesh);padding:80px 0;}
 .proof .inner{max-width:820px;text-align:center;margin:0 auto;}
 .proof h2{font-weight:700;font-size:var(--text-4xl);letter-spacing:-.02em;color:#fff;margin:12px 0 0;max-width:none;}
@@ -199,6 +199,7 @@ h1,h2,h3{font-family:var(--font-display);margin:0;}
     <g id="i-arrow-right" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></g>
     <g id="i-check" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></g>
     <g id="i-spark" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></g>
+    <g id="i-shield" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 4 8 8 9 4-1 8-4 8-9V5z"/><path d="m9 12 2 2 4-4"/></g>
     <g id="i-pin" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></g>
   </defs>
 </svg>
@@ -230,10 +231,10 @@ h1,h2,h3{font-family:var(--font-display);margin:0;}
 <section class="cs-hero">
   <div class="mesh"></div><div class="vig"></div>
   <div class="wrap">
-    <span class="kicker">Case study · HubSpot · B2B demand generation · LATAM · US · EU</span>
-    <h1>We turned Nebius Academy's website into a lead engine — <span class="grad-text">and its funnel into something sales could trust.</span></h1>
-    <p class="sub">Nebius Academy sells corporate AI-adoption training across three regions. We built the full go-to-market lead engine on HubSpot — capture, ICP, scoring, and nurture — so a website visitor becomes a known, qualified, routable opportunity.</p>
-    <span class="clientbar"><span class="lbl">Client</span><img src="https://marketing-ai-adoption-assessment.lovable.app/__l5e/assets-v1/e4b4b61f-e8d0-4210-ae2b-fbe44c5aad30/nebius-logo-dark.svg" alt="Nebius Academy" loading="lazy"></span>
+    <span class="kicker">Case study · HubSpot → Bloomreach · Shopify · Multi-channel</span>
+    <h1>A pet-care retailer's move to Bloomreach — <span class="grad-text">personal, multi-channel, and GDPR-safe by design.</span></h1>
+    <p class="sub">A global animal-health group runs its direct-to-consumer stores on Shopify. We replatformed the engagement layer from HubSpot to Bloomreach and built a privacy-first personalization engine — subscription pop-ups to post-purchase, across email, SMS, MMS, and consent-based Meta and Google audiences.</p>
+    <span class="clientbar"><span class="lbl">Client</span><span class="cn">Global animal-health group · undisclosed</span></span>
     <div class="cta">
       <a class="btn btn-grad" href="https://calendar.app.google/7uNh9hJfqoH52geQA" target="_blank" rel="noopener" style="padding:14px 24px;font-size:1.0625rem">Book a 20-minute look <svg class="icn"><use href="#i-arrow-right"/></svg></a>
     </div>
@@ -242,96 +243,109 @@ h1,h2,h3{font-family:var(--font-display);margin:0;}
 
 <section class="cs">
   <div class="wrap narrow reveal lede">
-    <p>For a considered B2B purchase — the kind a company weighs for weeks and signs off by committee — the distance between a website visitor and a sales conversation is where growth quietly leaks. Most of that traffic stays anonymous, unscored, and unrouted; the sales team hears about the good ones too late, or not at all.</p>
-    <p>Here is how we closed that gap for <b>Nebius Academy</b>: a go-to-market lead engine, built on the HubSpot they already run, that turns strangers into a pipeline sales actually trusts — across three very different regions.</p>
+    <p>Personalization and privacy are usually framed as a trade-off: the more you tailor, the more data you hold, the more exposure you carry. Done right, they're the opposite — a program built on clean, consented data is both more personal <em>and</em> more defensible.</p>
+    <p>Here is how we moved one of the world's largest animal-health and pet-wellbeing groups off <b>HubSpot</b> and onto <b>Bloomreach</b>, wired to their <b>Shopify</b> stores, and built a personalization engine that reaches people across email, SMS, MMS, and paid audiences — with GDPR and anonymization designed in from the first event, not bolted on at the end.</p>
   </div>
 </section>
 
 <section class="cs alt">
   <div class="wrap narrow reveal">
     <span class="eyebrow">The client &amp; the brief</span>
-    <h2>Traffic they could see. Pipeline they couldn't.</h2>
-    <p>Nebius Academy runs corporate training programs on AI adoption — practical AI education for teams putting the technology to work. Its buyers are businesses across <b>LATAM, the US, and Europe</b>, and its website is the front door: the place interest begins. But interest isn't pipeline. Marketing couldn't see who was engaging, sales couldn't tell which leads were worth a call, and no single number connected the two.</p>
-    <p>The brief was a classic go-to-market (GTM) problem, made harder by three regions that buy at different speeds and in different languages: turn website demand into a <b>measurable, qualified, sales-ready pipeline</b> on HubSpot — and make the whole funnel legible enough that marketing and sales finally agree on what a good lead is.</p>
-    <p class="pull">Make the funnel legible. Make the leads trustworthy.</p>
+    <h2>Outgrew the tool, not the ambition</h2>
+    <p>The client is one of the world's largest animal-health and pet-wellbeing groups — best known for clinically-backed calming and skin-care products for cats and dogs — which recently launched a direct-to-consumer ecommerce arm on <b>Shopify</b>, operating across several markets in the US, the UK, and Europe.</p>
+    <p>HubSpot had served the early days, but it wasn't built for commerce at this depth. The team wanted three things it couldn't get cleanly: <b>genuine personalization</b> driven by catalog and behavior; <b>multi-channel reach</b> beyond email; and — operating across European markets — <b>airtight GDPR compliance</b>, with consent and anonymization handled properly rather than hoped for. So they chose <b>Bloomreach</b>, and asked us to make the move and build the engine.</p>
+    <p class="pull">More personal and more private — not one at the cost of the other.</p>
   </div>
 </section>
 
 <section class="cs">
   <div class="wrap narrow reveal">
     <span class="eyebrow">How we work</span>
-    <h2>A go-to-market engine, on the stack they already run</h2>
-    <p>We're a senior CRM collective, and on a GTM build we do three things at once: get more out of the platform a client already runs — here, <b>HubSpot</b> — and coach the team to own it; instrument the entire funnel so nothing is invisible; and use <b>Advanced Jobs-to-be-Done (AJTBD)</b> to find who actually buys, and why.</p>
-    <p>The engine we built for Nebius has four moving parts, in the order a stranger travels through them: <b>capture</b> the intent, <b>understand</b> who it belongs to, <b>score</b> it honestly, and <b>hand it off</b> to sales with context.</p>
+    <h2>Clean data first, then personalization on top</h2>
+    <p>We're a senior CRM collective, and we run a migration in a deliberate order: get the <b>data foundation</b> right — including consent and anonymization — before building anything on it, so every downstream layer is personal and compliant by default. We get the most out of the platform the client chose (Bloomreach on Shopify) and coach the team to run it after we step back.</p>
+    <p>The engine came together in four parts: the <b>foundation</b> (data, events, and privacy by design), the <b>on-site</b> layer (weblayers and subscription pop-ups), the <b>personalized lifecycle</b> (activation and post-purchase), and <b>multi-channel orchestration</b> across owned and paid channels.</p>
   </div>
 </section>
 
 <section class="cs alt">
   <div class="wrap narrow reveal">
-    <span class="eyebrow">Move 1 · Capture</span>
-    <h2>Turn anonymous traffic into known, tracked intent</h2>
-    <p>You can't qualify a stranger. So the first job was to give people good reasons to raise their hand — and to capture what they did next, not just their email. We built a set of <b>lead magnets</b> matched to where a buyer is in their thinking, upgraded the site's <b>forms</b> to progressively profile without adding friction, and instrumented <b>custom web events</b> so high-intent behavior became a signal we could act on.</p>
+    <span class="eyebrow">Move 1 · Foundation</span>
+    <h2>Data, events, and privacy by design</h2>
+    <p>A personalization engine is only as good — and as safe — as the data model beneath it. We rebuilt the architecture in Bloomreach around real-time commerce events from Shopify, with a clean identity model, and made <b>consent and anonymization first-class parts of that model</b>, not an afterthought. Then we migrated off HubSpot in a controlled cutover, with no gap in sending and no lost history.</p>
     <div class="mech reveal">
-      <div class="step"><span class="n">1</span><h3>Lead magnets</h3><p>Practical assets — readiness guides, syllabi, ROI tools — matched to early, mid, and late intent, so raising a hand feels worth it.</p></div>
-      <div class="step"><span class="n">2</span><h3>Progressive forms</h3><p>Forms that ask for a little at a time and remember the rest, capturing role, company, and need without the wall of fields that kills completion.</p></div>
-      <div class="step"><span class="n">3</span><h3>Custom web events</h3><p>Pricing views, syllabus downloads, and repeat visits tracked as first-class signals — the behavior that separates a browser from a buyer.</p></div>
+      <div class="step"><span class="n">1</span><h3>Commerce data model</h3><p>Customers, orders, and catalog rebuilt to power personalization — designed to answer "what's relevant to this person?", not just "what did they buy?"</p></div>
+      <div class="step"><span class="n">2</span><h3>Event management</h3><p>Shopify behavior — views, carts, purchases, stock changes — tracked as real-time signals every scenario and channel can act on.</p></div>
+      <div class="step"><span class="n">3</span><h3>Consent &amp; anonymization</h3><p>Per-channel consent captured at the source; personal data pseudonymized in the model, so analytics and testing run on anonymized profiles.</p></div>
     </div>
-    <div class="mech-note"><svg><use href="#i-spark"/></svg><p><b>All of it inside HubSpot.</b> We built the capture layer on the platform Nebius already ran and coached the team to extend it — new magnets and events are theirs to add, not a ticket to us.</p></div>
+    <div class="mech-note"><svg><use href="#i-spark"/></svg><p><b>A zero-gap cutover.</b> We migrated off HubSpot without a pause in sends or a loss of subscriber history — and coached the client's team to own the new data and consent layer.</p></div>
   </div>
 </section>
 
 <section class="cs">
   <div class="wrap narrow reveal">
-    <span class="eyebrow">Move 2 · Understand</span>
-    <h2>Who Nebius is really for — found with Advanced JTBD</h2>
-    <p>A lead engine that treats everyone the same is just a louder version of the old problem. So before scoring or nurturing anyone, we asked who Nebius is truly for — using <b>Advanced Jobs-to-be-Done</b> to move past job titles and firmographics to the actual job a company hires AI training to do. We drafted several ideal-customer hypotheses, put them in front of the market, and let engagement and sales conversations narrow the field to the segments that genuinely convert.</p>
+    <span class="eyebrow">Built in · Privacy by design</span>
+    <h2>GDPR compliance you can point to</h2>
+    <p>Operating across European markets, compliance couldn't be a policy document — it had to be wired into the system. We built the program so that consent governs everything downstream: what's collected, how it's used, which channels a person is reached on, and whether they ever enter a paid audience at all.</p>
     <div class="chartwrap reveal">
-      <div class="chart-h">Ideal-customer segments, by the job they're hiring training to do</div>
-      <p class="chart-sub">Several hypotheses tested; the field narrowed to the highest-fit segments below.</p>
+      <div class="chart-h">What "compliant by design" actually means here</div>
+      <p class="chart-sub">Consent and anonymization built into the data layer — enforced everywhere it flows.</p>
       <div class="freq">
-        <div class="r"><div class="nm">Enterprise upskilling</div><span class="cad">High fit</span><div class="note">"Get our whole workforce productive with AI — quickly, and safely." Buys by committee; needs proof and governance.</div></div>
-        <div class="r"><div class="nm">Transformation lead</div><span class="cad">High fit</span><div class="note">"Show the board real AI capability, not another pilot." Wants outcomes and a credible roadmap.</div></div>
-        <div class="r"><div class="nm">Fast-scaling tech team</div><span class="cad">High fit</span><div class="note">"Level up our engineers on applied AI without slowing delivery." Values depth and speed over polish.</div></div>
-        <div class="r"><div class="nm">Regional partner</div><span class="cad">Emerging</span><div class="note">"Bring credible AI training to our market." A route into LATAM demand through local resellers and partners.</div></div>
+        <div class="r"><div class="nm">Consent management</div><span class="cad">Per channel</span><div class="note">Granular, per-channel consent — email, SMS, MMS, and paid audiences — captured at the source and honored everywhere.</div></div>
+        <div class="r"><div class="nm">Anonymization</div><span class="cad">Pseudonymized</span><div class="note">Personal data pseudonymized in the model; reporting, segmentation, and testing run on anonymized profiles.</div></div>
+        <div class="r"><div class="nm">Retention &amp; erasure</div><span class="cad">Right to forget</span><div class="note">Automated retention windows and reliable erasure across the stack when a person asks to be forgotten.</div></div>
+        <div class="r"><div class="nm">Paid audiences</div><span class="cad">Opt-in only</span><div class="note">Only consented profiles ever sync to Meta or Google — no retargeting audience is built without permission.</div></div>
       </div>
-      <p class="chart-note"><b>Why it matters:</b> a defined ICP is the backbone everything downstream leans on — the scoring model, the nurture tracks, and the language sales uses on the call. Get this wrong and you optimize the funnel for the wrong people.</p>
+      <p class="chart-note"><b>Why it matters:</b> when consent is enforced in the data layer, personalization and paid reach get safer as they scale — not riskier. Compliance stops being the brake and becomes part of the foundation.</p>
     </div>
   </div>
 </section>
 
 <section class="cs alt">
   <div class="wrap narrow reveal">
-    <span class="eyebrow">Move 3 · Score</span>
-    <h2>A lead score both marketing and sales believe</h2>
-    <p>With the ICP defined and behavior tracked, we built a <b>lead scoring model</b> that turns scattered signals into a single, trustworthy number — and, crucially, a shared definition of when a lead becomes a <b>marketing-qualified lead (MQL)</b> ready to route to sales. The model reads three kinds of signal, and it keeps learning from the one that matters most: what sales actually does with the leads it receives.</p>
-    <div class="mech reveal">
-      <div class="step"><span class="n">1</span><h3>Declared data</h3><p>Role, company size, region, and stated need from the progressive forms — fit against the ICP.</p></div>
-      <div class="step"><span class="n">2</span><h3>Behavioral signals</h3><p>The custom web events — pricing views, downloads, return visits — weighted by how much intent they really carry.</p></div>
-      <div class="step"><span class="n">3</span><h3>Sales feedback loop</h3><p>Which MQLs sales accepted, worked, or rejected — fed back to retune the weights so the score tracks reality, not theory.</p></div>
-    </div>
-    <p>We didn't set the model once and walk away. Reading the reports beside the sales team, we <b>recalibrated the thresholds</b> against accepted-lead outcomes until an MQL reliably meant a lead worth a rep's time.</p>
+    <span class="eyebrow">Move 2 · On-site</span>
+    <h2>Weblayers and subscription pop-ups that convert consent</h2>
+    <p>Personalization starts before the first email. Using Bloomreach <b>weblayers</b> on the Shopify stores, we personalized the storefront itself — recommendations tuned to browsing and purchase history, dynamic content that reacts to what a shopper cares about, and a back-in-stock capture that turns an out-of-stock dead end into a first-party signal.</p>
+    <p>The entry point is a <b>subscription pop-up</b> designed to earn opt-in, not nag for it: shown with intent, worth the exchange, and — critically — capturing <b>explicit, per-channel consent</b> at the moment someone joins. Every downstream channel inherits that permission cleanly.</p>
   </div>
 </section>
 
 <section class="cs">
   <div class="wrap narrow reveal">
-    <span class="eyebrow">Move 4 · Hand off</span>
-    <h2>Segmented nurture, and a funnel everyone can read</h2>
-    <p>A qualified lead still needs to arrive warm. We built <b>nurture campaigns per segment</b>, each mapped to that buyer's job-to-be-done — the enterprise track leads with governance and proof; the tech-team track leads with depth — so leads mature toward a conversation instead of going cold. And we made the whole thing legible with end-to-end reporting: <b>Subscribers → Leads → MQL → sales-qualified lead (SQL)</b>, with the conversion between every stage visible to both teams.</p>
-    <!-- ILLUSTRATIVE funnel figures — replace with verified HubSpot data before publishing -->
+    <span class="eyebrow">Move 3 · Personalized lifecycle</span>
+    <h2>Activation and post-purchase, made personal</h2>
+    <p>Two moments decide whether a store grows: turning interested prospects into first-time buyers, and turning first-time buyers into repeat ones. We built both as deeply personalized journeys — driven by the individual's behavior and pet, not a blanket message — alongside the everyday scenarios that carry the rest.</p>
     <div class="chartwrap reveal">
-      <div class="chart-h">The go-to-market funnel, instrumented end to end</div>
-      <p class="chart-sub">One shared view of the journey — every stage, and the conversion between them.</p>
-      <div class="funnel">
-        <div class="st"><div class="bar" style="width:100%"><span class="nm">Subscribers</span><span class="vv">known &amp; opted-in</span></div></div>
-        <div class="conv">↓ about 1 in 5 becomes a tracked lead</div>
-        <div class="st"><div class="bar" style="width:72%"><span class="nm">Leads</span><span class="vv">showed intent</span></div></div>
-        <div class="conv">↓ about 38% reach MQL</div>
-        <div class="st mql"><div class="bar" style="width:46%"><span class="nm">MQL</span><span class="vv">scored, ready to route</span></div></div>
-        <div class="conv">↓ about 34% accepted as SQL</div>
-        <div class="st sql"><div class="bar" style="width:26%"><span class="nm">SQL</span><span class="vv">sales-accepted</span></div></div>
+      <div class="chart-h">The scenario library — personalization at each moment</div>
+      <p class="chart-sub">Activation and post-purchase lead; each journey built once and personalized per shopper.</p>
+      <div class="freq">
+        <div class="r"><div class="nm">Prospect activation</div><span class="cad">Engaged, not bought</span><div class="note">For interested non-buyers, a personalized track built from what they browsed — the right products and proof, not a blanket discount — that moves interest toward a first order.</div></div>
+        <div class="r"><div class="nm">Post-purchase</div><span class="cad">After order</span><div class="note">Care tips for the specific pet, replenishment timed to the product bought, and a genuinely relevant next item — turning a first order into a lasting relationship.</div></div>
+        <div class="r"><div class="nm">Welcome</div><span class="cad">On sign-up</span><div class="note">Introduce the brand and learn the pet — species, needs, preferences — to personalize everything that follows.</div></div>
+        <div class="r"><div class="nm">Abandoned cart</div><span class="cad">On cart, no order</span><div class="note">A timely, product-specific nudge that recovers revenue already halfway to checkout.</div></div>
+        <div class="r"><div class="nm">Back-in-stock</div><span class="cad">On restock</span><div class="note">Alert the shoppers who wanted an out-of-stock item the moment it returns — high intent, high conversion.</div></div>
       </div>
-      <p class="chart-note"><b>The point:</b> one funnel, one language. When marketing and sales read the same stages and the same conversion rates, the argument about "lead quality" turns into a shared number they can move together.</p>
+      <p class="chart-note"><b>Personal, not generic:</b> the activation and post-purchase tracks pull from each shopper's own behavior and pet profile, so the content is chosen for them — which is exactly why they outperform a one-size-fits-all send.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cs alt">
+  <div class="wrap narrow reveal">
+    <span class="eyebrow">Move 4 · Multi-channel orchestration</span>
+    <h2>Beyond email — owned and paid, from one hub</h2>
+    <p>Email was never going to be enough. We made Bloomreach the hub of a multi-channel program: owned messaging across <b>email, SMS, and MMS</b>; paid reach through <b>consent-based retargeting audiences synced to Meta and Google</b>; and inbound capture that tracks <b>Instagram lead ads straight into Bloomreach</b> — so a prospect who raises their hand on social lands in the same personalized journey as everyone else, on the channels they've agreed to.</p>
+    <div class="chartwrap reveal">
+      <div class="chart-h">One hub, every channel — governed by consent</div>
+      <p class="chart-sub">Inbound leads and outbound reach, orchestrated from Bloomreach.</p>
+      <div class="orch reveal">
+        <div><span class="grp">Inbound</span><div class="orow"><span class="chip in"><span class="d"></span>Instagram lead ads</span></div></div>
+        <div class="arw">↓ tracked into</div>
+        <div class="hub">Bloomreach</div>
+        <div class="arw">↓ orchestrates, by consent</div>
+        <div><span class="grp">Owned</span><div class="orow"><span class="chip"><span class="d"></span>Email</span><span class="chip"><span class="d"></span>SMS</span><span class="chip"><span class="d"></span>MMS</span></div></div>
+        <div><span class="grp">Paid audiences</span><div class="orow"><span class="chip paid">Meta retargeting</span><span class="chip paid">Google retargeting</span></div></div>
+      </div>
+      <p class="chart-note"><b>The point:</b> one profile, many channels, one consent record. A person is reached only where they've opted in, and paid audiences are built from the same consented data — so reach grows without the compliance risk that usually comes with it.</p>
     </div>
   </div>
 </section>
@@ -340,43 +354,43 @@ h1,h2,h3{font-family:var(--font-display);margin:0;}
   <div class="wrap">
     <div class="inner reveal">
       <span class="eyebrow" style="color:rgba(255,255,255,.7)">The results</span>
-      <h2>A funnel that converts — and that sales stopped arguing with</h2>
-      <p class="plead">Measured over the first two quarters on HubSpot, as the scoring model and nurture tracks matured. The headline isn't any single number — it's that the same journey now produces qualified, accepted pipeline predictably, in three regions at once.</p>
+      <h2>More personal, more channels — and clean on consent</h2>
+      <p class="plead">The migration was invisible to customers, as it should be. What changed underneath is a program that personalizes the moments that matter, reaches people wherever they've opted in, and does it all on a consented, anonymized foundation.</p>
     </div>
-    <!-- ILLUSTRATIVE figures — replace with verified HubSpot data before publishing -->
+    <!-- ILLUSTRATIVE figures — replace with verified Bloomreach/Shopify data before publishing -->
     <div class="statpairs reveal">
-      <div class="sp"><span class="lab">Form completion</span><div class="val"><span class="from">34%</span><span class="arw">→</span><span class="to">52%</span></div><span class="note">Progressive forms</span></div>
-      <div class="sp"><span class="lab">MQL → SQL conversion</span><div class="val"><span class="from">18%</span><span class="arw">→</span><span class="to">34%</span></div><span class="note">After scoring recalibration</span></div>
-      <div class="sp"><span class="lab">Sales-accepted lead rate</span><div class="val"><span class="from">46%</span><span class="arw">→</span><span class="to">78%</span></div><span class="note">MQLs sales chose to work</span></div>
-      <div class="sp"><span class="lab">Time to SQL</span><div class="val"><span class="from">41 days</span><span class="arw">→</span><span class="to">24 days</span></div><span class="note">Faster, warmer handoff</span></div>
+      <div class="sp"><span class="lab">Repeat-purchase rate</span><div class="val"><span class="from">22%</span><span class="arw">→</span><span class="to">31%</span></div><span class="note">Personalized post-purchase</span></div>
+      <div class="sp"><span class="lab">Prospect → first order</span><div class="val"><span class="from">—</span><span class="arw">→</span><span class="to">~9%</span></div><span class="note">Personalized activation</span></div>
+      <div class="sp"><span class="lab">Pop-up opt-in rate</span><div class="val"><span class="from">—</span><span class="arw">→</span><span class="to">~6%</span></div><span class="note">Consent-first capture</span></div>
+      <div class="sp"><span class="lab">Channels orchestrated</span><div class="val"><span class="from">1</span><span class="arw">→</span><span class="to">5</span></div><span class="note">Email · SMS · MMS · Meta · Google</span></div>
     </div>
-    <p class="pcap reveal"><b>Read this honestly.</b> These are program-level figures from the first two quarters, and the biggest driver was the sales-feedback loop tightening the scoring model — so the sharpest gains are in lead <b>quality</b> (acceptance, MQL→SQL), not raw volume. Regional pace differs: the US matured fastest, the EU close behind, LATAM building through partners.</p>
+    <p class="pcap reveal"><b>Read this honestly.</b> The defensible outcomes are the clean migration, the multi-channel reach, and the consent-and-anonymization framework — the mechanics we built and can attribute. Revenue-side gains (repeat rate, activation) build over time and vary by market and season, so we scope them to the programs they came from and treat the engine and its compliance as the headline.</p>
   </div>
 </section>
 
 <section class="cs">
   <div class="wrap narrow reveal">
     <span class="eyebrow">The outcome</span>
-    <h2>A go-to-market motion Nebius owns — and can repeat</h2>
+    <h2>A personalization engine the client can trust — and run</h2>
     <ul class="rlist">
-      <li><svg><use href="#i-check"/></svg><span><b>Capture —</b> anonymous traffic became known, tracked intent, with lead magnets, progressive forms, and custom events feeding every downstream decision.</span></li>
-      <li><svg><use href="#i-check"/></svg><span><b>Understand —</b> an Advanced-JTBD ICP replaced guesswork, so the engine is tuned for the buyers who actually convert — not the ones who merely fill out forms.</span></li>
-      <li><svg><use href="#i-check"/></svg><span><b>Score —</b> a lead model, recalibrated against sales feedback, turned "is this a good lead?" from an argument into a number both teams trust.</span></li>
-      <li><svg><use href="#i-check"/></svg><span><b>Hand off —</b> segmented nurture and an end-to-end funnel report (Subscribers → Leads → MQL → SQL) gave marketing and sales one shared, legible view.</span></li>
-      <li><svg><use href="#i-check"/></svg><span><b>How —</b> every layer built on the HubSpot stack Nebius already owned, with the team coached to run and extend it across all three markets.</span></li>
+      <li><svg><use href="#i-check"/></svg><span><b>Foundation &amp; privacy —</b> a commerce data model with consent and anonymization built in, migrated off HubSpot with zero sending downtime.</span></li>
+      <li><svg><use href="#i-check"/></svg><span><b>On-site —</b> weblayers and a consent-first subscription pop-up personalize the storefront and earn clean, per-channel opt-in.</span></li>
+      <li><svg><use href="#i-check"/></svg><span><b>Lifecycle —</b> deeply personalized prospect-activation and post-purchase journeys, alongside welcome, cart, and back-in-stock.</span></li>
+      <li><svg><use href="#i-check"/></svg><span><b>Multi-channel —</b> email, SMS, and MMS, plus consent-based Meta and Google audiences and Instagram lead tracking — all orchestrated from Bloomreach.</span></li>
+      <li><svg><use href="#i-check"/></svg><span><b>Compliant by design —</b> GDPR and anonymization enforced in the data layer, so personalization and paid reach scale safely.</span></li>
     </ul>
-    <p class="honest">Kept honest: the strongest, most defensible gains are in lead quality — MQL→SQL conversion and sales acceptance — driven by the scoring feedback loop. Volume and revenue figures move with market conditions and sales capacity, so we scope this case to the funnel mechanics we built and can attribute.</p>
+    <p class="honest">Kept honest: the strongest, most defensible outcomes are the clean cutover, the multi-channel orchestration, and the consent framework — the parts we built and can point to directly. Revenue from the new journeys compounds over time and varies by market and season, so we scope it to the programs, not to a single seasonal figure.</p>
   </div>
 </section>
 
 <section class="cs alt">
   <div class="wrap narrow reveal">
     <span class="eyebrow">Who this is for</span>
-    <h2>If your website has traffic but your pipeline has fog</h2>
+    <h2>If you want personal and multi-channel — without the compliance risk</h2>
     <div class="segs">
-      <div class="seg"><span class="tag">Situation 01</span><h3>You just rolled out HubSpot</h3><p>The platform is in, but the pipeline isn't flowing. You have the tool — you need the engine that makes it produce.</p></div>
-      <div class="seg"><span class="tag">Situation 02</span><h3>You're scaling into new markets</h3><p>Growing across regions and languages, and you need one GTM motion that travels — instrumented the same way everywhere.</p></div>
-      <div class="seg"><span class="tag">Situation 03</span><h3>Sales &amp; marketing disagree on leads</h3><p>The "lead quality" argument never ends. You need a scoring model and a funnel both teams can actually trust.</p></div>
+      <div class="seg"><span class="tag">Situation 01</span><h3>You've outgrown HubSpot for commerce</h3><p>It got you started, but catalog- and behavior-driven personalization is a fight. You need a commerce-first platform, moved to without downtime.</p></div>
+      <div class="seg"><span class="tag">Situation 02</span><h3>Email isn't enough anymore</h3><p>You want SMS, MMS, and paid retargeting working together — from one profile, not four disconnected tools.</p></div>
+      <div class="seg"><span class="tag">Situation 03</span><h3>GDPR keeps you up at night</h3><p>You're personalizing across markets and need consent and anonymization enforced in the system, not promised in a policy.</p></div>
     </div>
   </div>
 </section>
@@ -386,8 +400,8 @@ h1,h2,h3{font-family:var(--font-display);margin:0;}
     <div class="cta-box reveal">
       <div class="glow"></div>
       <div class="in">
-        <h2>Your traffic already knows who's ready</h2>
-        <p>It's just not telling sales yet. Book a 20-minute look and we'll show you the pipeline hiding in the demand you already have.</p>
+        <h2>Personal, multi-channel, and safe</h2>
+        <p>If you want deeper personalization and more channels without the compliance headache, book a 20-minute look and we'll show you how it fits together.</p>
         <a class="btn btn-white" href="https://calendar.app.google/7uNh9hJfqoH52geQA" target="_blank" rel="noopener" style="padding:14px 26px;font-size:1.0625rem">Book a 20-minute look <svg class="icn"><use href="#i-arrow-right"/></svg></a>
       </div>
     </div>
